@@ -15,6 +15,8 @@ public protocol ParameterProvider {
 /// Describing all configurations for this package.
 public actor Configuration {
     
+    public init() {}
+    
     /// All pre-provide parameters by host project which use this package.
     ///
     /// Functions in this package will found all those parameters in this instance.
