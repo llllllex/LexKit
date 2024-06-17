@@ -20,8 +20,6 @@ public actor iCloudFileActor {
 
 private extension iCloudFileActor {
     
-//    private static let containerIdentifier = "iCloud.dev.ryotrix.Fancer"
-    
     private static let containerIdentifier = Configuration.parameterProvider?.iCloudContainerIdentifier
     
     private var containerURL: URL? {

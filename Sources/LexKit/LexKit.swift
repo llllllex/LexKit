@@ -4,7 +4,7 @@
 
 
 /// Describing all parameters the Package needs to provide associated functions.
-public protocol ParameterProvider {
+public protocol ParameterProvider: Sendable {
     
     
     /// Provide the iCloud container's identifier if there's needs for iCloud storage.
