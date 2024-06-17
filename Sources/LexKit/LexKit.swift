@@ -4,7 +4,7 @@
 
 
 /// Describing all parameters the Package needs to provide associated functions.
-public protocol ParameterProvider {
+public protocol ParameterProvider: Sendable {
     
     
     /// Provide the iCloud container's identifier if there's needs for iCloud storage.
@@ -13,9 +13,7 @@ public protocol ParameterProvider {
 
 
 /// Describing all configurations for this package.
-public actor Configuration {
-    
-    public init() {}
+public actor Configuration: Sendable {
     
     /// All pre-provide parameters by host project which use this package.
     ///
