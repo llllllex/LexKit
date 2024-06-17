@@ -20,19 +20,22 @@ public actor iCloudFileActor {
 
 private extension iCloudFileActor {
     
-    private static let containerIdentifier = Configuration.parameterProvider?.iCloudContainerIdentifier
-    
-    private var containerURL: URL? {
+    private func containerURL() async -> URL? {
         
-        FileManager.default
-            .url(
-                forUbiquityContainerIdentifier: iCloudFileActor.containerIdentifier
-            )
+        let configuration = Configuration.shared
+        if let iCloudContainerIdentifier = await configuration.parameterProvider?.iCloudContainerIdentifier {
+            
+            return FileManager.default
+                .url(
+                    forUbiquityContainerIdentifier: iCloudContainerIdentifier
+                )
+        }
+        return nil
     }
     
-    private var documentsURL: URL? {
+    private func documentsURL() async -> URL? {
         
-        containerURL?
+        await containerURL()?
             .appendingPathComponent(
                 "Documents",
                 conformingTo: .directory
