@@ -23,8 +23,11 @@ public actor Configuration: Sendable {
     /// Functions in this package will found all those parameters in this instance.
     private var _parameterProvider: ParameterProvider?
     
-    public var parameterProvider: ParameterProvider? {
-        get { _parameterProvider }
-        set { _parameterProvider = newValue }
+    public func parameterProvider() -> ParameterProvider? {
+        return _parameterProvider
+    }
+    
+    public func setParameterProvider(_ parameterProvider: ParameterProvider?) {
+        _parameterProvider = parameterProvider
     }
 }

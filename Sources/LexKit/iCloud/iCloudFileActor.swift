@@ -23,7 +23,7 @@ private extension iCloudFileActor {
     private func containerURL() async -> URL? {
         
         let configuration = Configuration.shared
-        if let iCloudContainerIdentifier = await configuration.parameterProvider?.iCloudContainerIdentifier {
+        if let iCloudContainerIdentifier = await configuration.parameterProvider()?.iCloudContainerIdentifier {
             
             return FileManager.default
                 .url(
