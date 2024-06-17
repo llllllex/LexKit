@@ -13,7 +13,7 @@ public protocol ParameterProvider {
 
 
 /// Describing all configurations for this package.
-public class Configuration {
+public actor Configuration {
     
     /// All pre-provide parameters by host project which use this package.
     ///
